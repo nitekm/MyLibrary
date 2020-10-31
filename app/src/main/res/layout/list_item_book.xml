@@ -10,12 +10,17 @@
 		android:id="@+id/parent">
 
 	<RelativeLayout
+			android:layout_width="200dp"
+	        android:layout_height="wrap_content" >
+
+	<RelativeLayout
 			android:layout_width="match_parent"
-			android:layout_height="match_parent">
+			android:layout_height="wrap_content"
+			android:id="@+id/collapsedLayout">
 
 		<ImageView
-				android:layout_width="130dp"
-		        android:layout_height="150dp"
+				android:layout_width="200dp"
+		        android:layout_height="230dp"
 				android:id="@+id/imgBook"
 				android:src="@mipmap/ic_launcher"/>
 
@@ -30,6 +35,65 @@
 				android:layout_marginTop="7dp"
 				android:id="@+id/txtName"/>
 
+		<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/ic_down_arrow"
+				android:layout_alignParentEnd="true"
+				android:layout_below="@+id/imgBook"
+				android:layout_marginTop="7dp"
+				android:id="@+id/downArrow"/>
+
+
 	</RelativeLayout>
+
+	<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/expandedLayout"
+			android:layout_below="@id/collapsedLayout"
+			android:visibility="gone">
+
+		<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Author: "
+				android:id="@+id/txtAuthor"
+				android:layout_marginTop="7dp"/>
+
+		<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Maciej Nitek"
+				android:layout_toRightOf="@+id/txtAuthor"
+				android:id="@+id/authorName"
+				android:layout_marginTop="7dp"/>
+
+		<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@id/authorName"
+				android:text="Short Description: "
+				android:id="@+id/txtShortDesc"
+				android:layout_marginTop="7dp"/>
+
+		<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/txtShortDesc"
+				android:id="@+id/shortDesc"
+				android:text="this is short description" />
+
+		<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/ic_up_arrow"
+				android:layout_below="@+id/shortDesc"
+				android:layout_alignParentEnd="true"
+				android:id="@+id/upArrow"/>
+
+		</RelativeLayout>
+	</RelativeLayout>
+
 
 </androidx.cardview.widget.CardView>
