@@ -25,9 +25,6 @@ public class AllBooksActivity extends AppCompatActivity {
         booksRecView.setAdapter(adapter);
         booksRecView.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayList<Book> books = new ArrayList<>();
-        books.add(new Book(1, "1984", "George Orwell", 184, "https://cf1-taniaksiazka.statiki.pl/images/large/EFF/61966402794KS.jpg"
-                , "Modern Utopia", "Long Description"));
-        adapter.setBooks(books);
+        adapter.setBooks(Utils.getInstance().getAllBooks());
     }
 }

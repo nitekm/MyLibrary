@@ -1,6 +1,7 @@
 package mnitek.mylibrary;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +16,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.transition.TransitionManager;
 import com.bumptech.glide.Glide;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
+
+import static mnitek.mylibrary.BookActivity.BOOK_ID_KEY;
 
 public class BooksRecViewAdapter extends RecyclerView.Adapter<BooksRecViewAdapter.ViewHolder>{
     private static final String TAG = "BooksRecViewAdapter";
 
     private ArrayList<Book> books;
     private Context mContext;
+
 
     public BooksRecViewAdapter(Context mContext) {
         this.mContext = mContext;
@@ -49,7 +52,9 @@ public class BooksRecViewAdapter extends RecyclerView.Adapter<BooksRecViewAdapte
         holder.parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, books.get(position).getName() + " Selected", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, BookActivity.class);
+                intent.putExtra(BOOK_ID_KEY, books.get(position).getId());
+                mContext.startActivity(intent);
             }
         });
 
