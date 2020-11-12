@@ -72,4 +72,20 @@ public class Utils {
         }
         return null;
     }
+
+    public boolean addToAlreadyRead(Book book) {
+        return readBooks.add(book);
+    }
+
+    public boolean addToCurrRead(Book book) {
+        return currentBooks.add(book);
+    }
+
+    public boolean addToFav(Book book) {
+        return favBooks.add(book);
+    }
+
+    public boolean addToWantRead(Book book) {
+        return wantBooks.add(book);
+    }
 }
