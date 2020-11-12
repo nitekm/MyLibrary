@@ -124,6 +124,32 @@ public class BookActivity extends AppCompatActivity {
     }
     private void handleAddToWishList(final Book book) {
 
+        ArrayList<Book> wishList = Utils.getInstance().getWantBooks();
+
+        boolean existInWishList = false;
+
+        for (Book b:wishList)
+            if(b.getId() == book.getId()) {
+                existInWishList = true;
+            }
+
+        if(existInWishList) {
+            btnAddToWishList.setEnabled(false);
+        }
+        else {
+            btnAddToWishList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (Utils.getInstance().addToWantRead(book)) {
+                        Toast.makeText(BookActivity.this, "Book added to Wishlist", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(BookActivity.this, WishList.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(BookActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
 
     }
     private void handleAddToFav(final Book book) {
