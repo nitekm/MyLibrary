@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 import static mnitek.mylibrary.BookActivity.BOOK_ID_KEY;
 
-public class BooksRecViewAdapter extends RecyclerView.Adapter<BooksRecViewAdapter.ViewHolder>{
+public class BooksRecViewAdapter extends RecyclerView.Adapter<BooksRecViewAdapter.ViewHolder> {
     private static final String TAG = "BooksRecViewAdapter";
 
     private ArrayList<Book> books;
